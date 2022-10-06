@@ -1,5 +1,7 @@
-import PlaceCard from "./PlaceCard"
 import { useState, useEffect } from "react";
+import PlaceCard from "./PlaceCard"
+import Search from "./Search";
+
 
 export default function Reviews() {
   
@@ -11,23 +13,41 @@ export default function Reviews() {
     .then(data => setPlaces(data))
   }, []);
 
+
+
+
   const handleDelete = id => {
     fetch(`http://localhost:9292/places/${id}`, {
       method: 'DELETE'})
     .then(res => res.json())
     .then(setPlaces(places.filter(place => place.id !== id)))
+    // .then(setPlaces(places.filter(place => place.id !== id)))
+    // .then(setPlaces(places.filter(place => place.name.toLowerCase().includes(searchTerm.toLowerCase)))
     };
-
+    
     const [ reviews, setReviews ] = useState([])
-
+    
     useEffect(() => {
       fetch('http://localhost:9292/reviews')
       .then(res => res.json())
       .then(data => setReviews(data))
     }, []);
+    
+    
+    // *************************************************************
+    // search bar
+    
+    const [ searchTerm, setSearchTerm ] = useState("")
+
+    const filteredPlaces = places.filter(placeObj =>placeObj.name.toLowerCase().includes(searchTerm.toLowerCase))
+
+  //  const filteredPlaces = places.filter(placeObj => placeObj.name.toLowerCase().includes(searchTerm.toLowerCase))
+ 
+  
 
       return (
         <>
+        
       <h1 className="title">Reviews</h1>
       <div className="drop-container">
         <select className="dropdown" name="places" id="places">
@@ -38,7 +58,9 @@ export default function Reviews() {
           <option value="Venues">Venue</option>
         </select>
       </div>
-      <input type="text" className="search-Btn"placeholder="Search.."></input>
+      <Search setSearchTerm={setSearchTerm}/>
+
+      {/* <input type="text" className="search-Btn"placeholder="Search.."></input> */}
       <div className="review-container">
         <div className="cards">
           {places.map(place => {
