@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react'
 import Typical from 'react-typical'
 
@@ -34,3 +35,4 @@ const text = [
     }
   }
   
+
