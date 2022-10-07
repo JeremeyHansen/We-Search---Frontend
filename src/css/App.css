@@ -11,6 +11,7 @@ body {
   color: var(--text-color);
   font-weight: var(--font-weight);
   transition: background 0.3s ease-in-out, color 0.6s ease-in-out;
+  color: rgb(168, 37, 216);
 }
 
 body.light {
@@ -67,3 +68,9 @@ p {
   margin: 1rem auto;
   line-height: 1.6;
 }
+/* img{
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
