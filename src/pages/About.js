@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> main
 import React, { Component } from 'react'
 import Typical from 'react-typical'
 
@@ -32,13 +29,8 @@ const text = [
             steps={text} 
             loop={Infinity} 
             className={'caca'} /></p>
-          <img src="https://danielarisa.com/wp-content/uploads/2022/10/logo-color.svg" width="1000" position="bottom" height="300" alt="logo" />
+          {/* <img src="https://danielarisa.com/wp-content/uploads/2022/10/logo-color.svg" width="1000" position="bottom" height="300" alt="logo" /> */}
         </div>
       )
     }
   }
-<<<<<<< HEAD
-  
-=======
-  
->>>>>>> main
